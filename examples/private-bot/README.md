@@ -8,13 +8,13 @@ This guide assumes you have already [set up an AWS account](http://docs.aws.amaz
 Configure AWS CLI with AWS credentials.
 
 #### Create Lambda function to handle bot event
-  1. From your preferred project directory: `git clone https://github.com/aws-samples/amazon-chime-private-bot-demo.git && cd amazon-chime-private-bot-demo/examples/private-bot`.
+  1. From your preferred project directory: `git clone https://github.com/aws-samples/amazon-chime-private-bot-demo.git && cd amazon-chime-private-bot-demo/examples/private-bot`.  
   2. Run `npm run config -- --account-id=<accountId> --bucket-name=<bucketName> --function-name=<functionName> --cloudformation-stack-name=<stack_name>` to configure the example.
 
   eg. `npm run config -- --account-id="123456789012" --bucket-name="my-unique-bucket" --function-name="myFunction" --cloudformation-stack-name="AmazonChimePrivateBotLambdaStack"`
 
-  This modifies `package.json` and `cloudformation.yaml` with your account ID, bucket, region and function name (region defaults to `us-east-1` and function name defaults to `AmazonChimePrivateBot`). If the bucket you specify does not yet exist, the next step will create it for you. This step modifies the existing files in-place; if you wish to make changes to these settings, you will need to modify `package.json` and `cloudformation.yaml` manually.
-  3. Run `npm run setup` - this installs the node dependencies, creates an S3 bucket (if it does not already exist), packages and deploys example lambda to handle bot event and create API Gateway to provides an HTTP endpoint for Chime to invoke Lambda function.
+  This modifies `package.json` and `cloudformation.yaml` with your account ID, bucket, region and function name (region defaults to `us-east-1` and function name defaults to `AmazonChimePrivateBot`). If the bucket you specify does not yet exist, the next step will create it for you. This step modifies the existing files in-place; if you wish to make changes to these settings, you will need to modify `package.json` and `cloudformation.yaml` manually.  
+  3. Run `npm run setup` - this installs the node dependencies, creates an S3 bucket (if it does not already exist), packages and deploys example lambda to handle bot event and create API Gateway to provides an HTTP endpoint for Chime to invoke Lambda function.  
   4. Copy http url from [API Gateway AWS console](https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/<api>/stages/<stage>), http url will be used when setup bot.
 
 #### Setup Chime Bot
